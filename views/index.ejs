@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>YouTube to Mp3 Converter </title>
+</head>
+<body>
+   
+    <div class="top-container">
+        <form action="/convert-mp3" method="POST" id="form">
+            <h1><i class="fa-brands fa-youtube"></i>Youtube To Mp3 Converter </h1>
+            <h4>Enter the youtbe's video link</h4>
+            <div>
+                <input type="text" name="videoID" placeholder="Video Link e.g https://www.youtube.com/watch?v=videoID"><button id="convert-button">Convert</button>
+            </div>
+        </form>
+        <h4 style="color: black;">- Daniel Tsavalos</h4>
+
+    </div>
+    
+    <div class="bottom-container">
+        <% if(typeof success != "undefined" && success) { %>
+            <div class="success">
+                <p><%= song_title %></p>
+                <a href="<%= song_link %>"><button id="download-btn">DOWNLOAD</button></a>
+            </div>
+            <% } else if(typeof success != "undefined" && !success) { %>
+                <div class="errors">
+                    <p><%= message %></p>
+                </div>
+            <% } %>
+            
+    </div>
+
+</body>
+</html>
