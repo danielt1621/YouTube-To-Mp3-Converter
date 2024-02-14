@@ -7,20 +7,85 @@
 
 body{
   color: white;
-  overflow: hidden;
+  /*overflow: hidden; disables scroll option*/
   font-family: 'Orbitron', sans-serif;
+  
+}
+
+.dark-mode {
+  background-color:  #333;
+  color: white;
+}
+
+#dark-mode-switch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 20px;
+  
+}
+
+#dark-mode-switch-btn {
+  
+  
+}
+
+
+#dark-mode-switch-toggle {
+  width: 30px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #ddd;
+  position: relative;
+  margin-left: 35%;
+  top: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#dark-mode-switch-toggle::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+.dark-mode #dark-mode-switch-toggle {
+  background-color: #333;
+}
+
+.dark-mode #dark-mode-switch-toggle::before {
+  transform: translateX(16px);
+}
+
+#header_1{
+  position: relative;
+  bottom: 70px;
 }
 
 .top-container{
   height: 40vh;
-  background-color: red;
+  background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%);
 }
 
 .bottom-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 30px;
+  padding-top: 50px;
+  
+}
+
+#input-placeholder{
+  position: relative;
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
 }
 
 #form{
@@ -33,6 +98,7 @@ body{
   flex-direction: column;
   gap: 10px;
   padding-top: 20px;
+  
 }
 
 #form h1{
@@ -49,6 +115,8 @@ body{
   font-family: inherit;
   outline: none;
   box-shadow: 2px 2px 5px gray;
+}body.dark-mode #form input{
+  box-shadow: 2px 2px 5px #030202;
 }
 
 #form button{
@@ -61,6 +129,8 @@ body{
   font-family: inherit;
   box-shadow: 2px 3px 5px gray;
   transition: 0.3s ease-out;
+}body.dark-mode #form button{
+  box-shadow: 2px 2px 5px #030202;
 }
 
 #form button:hover{
@@ -68,6 +138,9 @@ body{
   background-color:  red;
   border: 1px solid  red;
   transform: scale(1.1);
+}body.dark-mode #form button:hover {
+  background-color: #91221E;
+  border: 1px solid  #6a1e1c;
 }
 
 .errors{
@@ -83,6 +156,10 @@ body{
   color: red;
   background-color: #ffe6e6;
   border: 1px solid red;
+}body.dark-mode .errors{
+  color: #ffe6e6;
+  background-color: #91221E;
+  border: 1px solid #91221E;
 }
 
 .success{
@@ -92,6 +169,8 @@ body{
   flex-direction: column;
   gap: 10px;
   color: black;
+}body.dark-mode .success{
+  color: white;
 }
 
 #download-btn{
@@ -109,6 +188,10 @@ body{
   font-family: inherit;
   border: 1px solid red;
   transition: 0.3s ease-out;
+}body.dark-mode #download-btn{
+  background-color: #91221E;
+  border: 1px solid  #6a1e1c;
+  box-shadow: 2px 2px 5px #030202;
 }
 
 #download-btn:hover{
@@ -116,6 +199,9 @@ body{
   background-color:  white;
   border: 1px solid  lightgray;
   transform: scale(1.1);
+}body.dark-mode #download-btn:hover{
+  background-color:  white;
+  border: 1px solid  lightgray;
 }
 
 @media(max-width:768px){
@@ -135,3 +221,154 @@ body{
     width: 50%;
   }
 }
+
+.additional-container {
+  margin-top: 2rem;
+}
+
+.horizontal-divs {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* FAQ Container*/
+#faq-main-header{
+  color: #030202;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}body.dark-mode #faq-main-header{
+  color: white;
+}
+
+
+#faq-section{
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.faq-container{ /*faq  question/answer container */
+  border: 2px solid #990000;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background-color: #990000;
+  color: white;
+}body.dark-mode .faq-container{
+  background-color: #6a1e1c;
+  border: 2px solid #6a1e1c;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s;
+  border-radius: 5px;
+  background-image: linear-gradient(147deg,  #ff0000 0%, #990000 74%);
+}body.dark-mode .faq-header{
+  background-image: linear-gradient(326deg, #181818 0%, #91221e 74%);
+}
+
+.faq-header.active{
+  background-image: linear-gradient(147deg, #990000 85%, #ff0000 0%);
+}body.dark-mode .faq-header.active{
+  background-image: linear-gradient(147deg,  #6a1e1c 85%,   #181818 0%);
+}
+
+.faq-question{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.faq-expand-symbol{
+  font-size: 30px;
+}
+
+.faq-answer{
+  display: none;
+  padding: 10px;
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+hr{
+  opacity: 30%;
+}
+
+#copywrite-statement{
+  font-size: 8pt;
+  color: #030202;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}body.dark-mode #copywrite-statement{
+  color: white;
+  opacity: 50%;
+}
+
+#footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer-links{
+  display: flex;
+  align-items: center;
+  font-size: 10pt;
+ margin-top: 10px;
+ margin-bottom: 20px;
+ 
+}#footer-links a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #030202;
+}body.dark-mode #footer-links a{
+  color: white;
+}
+
+#footer-links :hover{
+  color: red;
+ 
+}body.dark-mode #footer-links  :hover{
+  color: #990000;
+  
+}
+
+#nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.contact-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+
+#contact-div button[type="button"] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+

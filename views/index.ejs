@@ -7,20 +7,31 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>YouTube to Mp3 Converter </title>
 </head>
+
 <body>
    
+
+    <!-- Top Container-->
     <div class="top-container">
+        <div id="dark-mode-switch">
+            <div id="dark-mode-switch-btn" onclick="dark_mode()">
+            <p>Mode: <span id="mode-text">Light</span> </p>
+              <div id="dark-mode-switch-toggle"></div>
+            </div>
+          </div>
+
         <form action="/convert-mp3" method="POST" id="form">
-            <h1><i class="fa-brands fa-youtube"></i>Youtube To Mp3 Converter </h1>
-            <h4>Enter the youtbe's video link</h4>
-            <div>
-                <input type="text" name="videoID" placeholder="Video Link e.g https://www.youtube.com/watch?v=videoID"><button id="convert-button">Convert</button>
+            <h1 id="header_1"><i class="fa-brands fa-youtube"></i>Youtube To Mp3 Converter</h1>
+            <h4 style="font-size: 11pt; display: flex; justify-content: center;">Please insert a valid YouTube video URL</h4>
+            <div id="input-placeholder">
+                <input type="text" name="videoID" placeholder="e.g. https://www.youtube.com/watch?v=videoID"><button id="convert-button">Convert</button>
             </div>
         </form>
-        
 
     </div>
     
+
+    <!-- Container to show song details and error message-->
     <div class="bottom-container">
         <% if(typeof success != "undefined" && success) { %>
             <div class="success">
@@ -34,6 +45,259 @@
             <% } %>
             
     </div>
+
+    <!--Site info container-->
+
+    <!-- FAQ1 -->
+    <div id="faq-section">
+        <div id="faq-main-header">FAQ</div>
+        <div class="faq-container" onclick="toggleAnswer('faq1')">
+        <div class="faq-header"  id="faq1">
+            <div class="faq-question">What is YouTube To Mp3 Converter?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq1">+</div>
+        </div>
+        <div class="faq-answer" id="faq1-answer">
+            <p>YouTube.com is the largest video sharing platform on the <br>
+                internet. Every day millions of new videos are added. You <br>
+                can find all kinds of videos but YouTube does not offer a <br>
+                FREE downloading service for these videos <br> <br>
+                YouTube To Mp3 Converter allows you to downlaod your favourite YouTube <br>
+                videos as MP3 (audio) files in the most efficient way. <br>
+                You are able to use YouTube To Mp3 Converter on any device <br>
+                it is optimized to work on desktop, tablet and mobile devices. <br>
+                There is also no additional software or app needed. <br>
+            </p>
+        </div>
+    </div>
+    <!-- FAQ2 -->
+        <div class="faq-container" onclick="toggleAnswer('faq2')">
+        <div class="faq-header" id="faq2">
+            <div class="faq-question">How to downlaod YouTube videos?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq2">+</div>
+        </div>
+        <div class="faq-answer" id="faq2-answer">
+            <p><b>1.</b> Open YouTube.com and search for the video you <br>
+                would like to download. <br><br>
+               <b>2.</b> When you find the video, click on it and wait until it <br>
+               starts  playing. Then, just copy the video URL from your <br>
+               browser address bar.<br><br>
+               <b>3.</b> Open <u>YouTube To MP3 Converter</u> and paste the video URL in our <br>
+               converter. Then, simply click on the "Convert" button. The <br>
+               conversion will be initiated, and may take a few minutes to<br>
+               convert your chosen video into an MP3 format. <br>
+               We will try to convert the video in the best available <br>
+               quality. But be aware that it is only possible to download <br>
+               videos that are up to 10 minutes long, to guarantee that <br>
+               the conversion will be done within a few minutes. <br><br>
+               <b>4.</b> As soon as the convertion of the video is completed <br>
+               you will see a "Downlaod" button. Just click on it, and the <br>
+               download shall start. Enjoy! <br> 
+               
+            </p>
+        </div>
+    </div>
+    <!-- FAQ3 -->
+        <div class="faq-container" onclick="toggleAnswer('faq3')">
+        <div class="faq-header" id="faq3"> 
+            <div class="faq-question">Which video platforms are supported?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq3">+</div>
+        </div>
+        <div class="faq-answer" id="faq3-answer">
+            <p>Our Wev-App supports YouTube. These kinds of YouTube video <br>
+                URLs are accepted by our converter: <br>
+                <b>-</b> youtube.com/watch?v=videoId <br>
+                <b>-</b> youtu.be/videoId<br>
+                <b>-</b> youtube.com/shorts/videoId <br>
+            </p>
+        </div>
+    </div>
+    <!-- FAQ4 -->
+    <div class="faq-container" onclick="toggleAnswer('faq4')">
+        <div class="faq-header" id="faq4"> 
+            <div class="faq-question">Is there a video length limit?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq4">+</div>
+        </div>
+        <div class="faq-answer" id="faq4-answer">
+            <p>Yes. Is is only posible to download YouTube videos <br>
+                with a maximum length of 10 minutes.
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ5 -->
+    <div class="faq-container" onclick="toggleAnswer('faq5')">
+        <div class="faq-header" id="faq5"> 
+            <div class="faq-question">Where is the mp3 file saved?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq5">+</div>
+        </div>
+        <div class="faq-answer" id="faq5-answer">
+            <p>You may check your browser settings. There you will <br>
+                find the download directory.
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ6 -->
+    <div class="faq-container" onclick="toggleAnswer('faq6')">
+        <div class="faq-header" id="faq6"> 
+            <div class="faq-question">How to downlaod file on iPhone/iPad?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq6">+</div>
+        </div>
+        <div class="faq-answer" id="faq6-answer">
+            <p>In case you're using an older iOs version you can <br>
+                download the app <u>Documents by Readdle</u> from the <br>
+                Apple Store to be able to save files to your device.
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ7 -->
+    <div class="faq-container" onclick="toggleAnswer('faq7')">
+        <div class="faq-header" id="faq7"> 
+            <div class="faq-question">What if the conversion doesn't start?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq7">+</div>
+        </div>
+        <div class="faq-answer" id="faq7-answer">
+            <p>Please delete your browser cache and reload the <br>
+                site. Should the conversion still not start please send <br>
+                us a message using our <u>contact form</u>
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ8 -->
+    <div class="faq-container" onclick="toggleAnswer('faq8')">
+        <div class="faq-header" id="faq8"> 
+            <div class="faq-question">Why conversion doesn't stop proccessing?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq8">+</div>
+        </div>
+        <div class="faq-answer" id="faq8-answer">
+            <p>
+                In case a message saying "processing" appears, and it doen't stop <br>
+                 refresh the page and try converting your video again. <br>
+                 This should fix the issue <br>
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ9 -->
+    <div class="faq-container" onclick="toggleAnswer('faq9')">
+        <div class="faq-header" id="faq9"> 
+            <div class="faq-question">Is there a downlaod limit?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq9">+</div>
+        </div>
+        <div class="faq-answer" id="faq9-answer">
+            <p>
+                Yes. Our app has a limit of 200 downlaods per day <br>
+                and that's only to ensure security. <br>
+                If the website reaches more traffic, we will allow more <br>
+                downloads per day. So share YouTube To Mp3 Converter with friends!
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ10 -->
+    <div class="faq-container" onclick="toggleAnswer('faq10')">
+        <div class="faq-header" id="faq10"> 
+            <div class="faq-question">What if an error occurs?</div>
+            <div class="faq-expand-symbol" id="expand-symbol-faq10">+</div>
+        </div>
+        <div class="faq-answer" id="faq10-answer">
+            <p>
+                Please be sure that you do not try to downlaod a <br>
+                YouTube video that is a: <br>
+                <b>-</b> livestream <br>
+                <b>-</b> longer than 10 minutes <br>
+                <b>-</b> private <br><br>
+                If your video does not match any of the above listed <br>
+                reasons and you are stil getting an error please <br>
+                report it using out <u>contact form</u>
+            </p>
+        </div>
+    </div>
+
+    
+
+
+    </div><!-- FAQ Container End-->
+
+    
+
+    <hr class="line-section">
+
+    
+    <!-- Footer Section-->
+    <div id="footer">
+        
+
+        <div id="footer-links">
+            <a id="contact" class="footer-link">Contact</a>
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms Of Use</a>
+        </div>
+
+
+    </div>
+
+    <!--Contact popup-->
+    <div id="contact-div" class="contact-div">
+            <button type="button" id="close-button">X</button>
+      </div>
+    
+    <!-- Copywrite -->
+    <div id="copywrite-statement">&copy: 2024 YouTube To Mp3 Converter and D.T. All Rights Reserved.</div>
+
+    
+    
+    <script>
+    //dark mode    
+        function dark_mode() {
+            var element = document.body;
+            var topContainer = document.getElementsByClassName("top-container")[0]; // access the first (and only) elemnt within the top-container class
+            element.classList.toggle("dark-mode");    
+            var modeText = document.getElementById("mode-text");
+            if (element.classList.contains("dark-mode")) { 
+                topContainer.style.backgroundImage = "linear-gradient(326deg, #181818 0%, #91221e 74%)";
+                modeText.textContent = "Dark";
+                localStorage.setItem("darkMode", "true"); // store the dark mode preference in local storage
+            } else {
+                topContainer.style.backgroundImage = null; //make it return to it's original color
+                modeText.textContent = "Light";
+                localStorage.setItem("darkMode", "false"); // store the light mode preference in local storage
+            }
+        }
+
+        // check the local storage value and set the initial dark mode state
+        if (localStorage.getItem("darkMode") === "true") {
+        dark_mode();
+        }
+
+        //Script for FAQ answers
+        function toggleAnswer(faqId){
+            var answer = document.getElementById(faqId + '-answer');
+            var symbol = document.getElementById('expand-symbol-' + faqId);
+            var question = document.getElementById(faqId);
+                question.classList.toggle('active');
+
+            if (answer.style.display === 'block'){
+                answer.style.display = 'none';
+                symbol.innerText = '+';
+            } else{
+                answer.style.display = 'block';
+                symbol.innerText = '-';
+            }
+        }
+
+        //contact
+        document.getElementById("contact").addEventListener("click", function() {
+        document.getElementById("contact-div").style.display = "flex";
+        });
+
+        document.getElementById("close-button").addEventListener("click", function() {
+        document.getElementById("contact-div").style.display = "none";
+        });
+    
+    </script>
 
 </body>
 </html>
