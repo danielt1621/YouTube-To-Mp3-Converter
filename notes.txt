@@ -10,14 +10,11 @@ To run js on so you can run the server:
 Ideas for the website
 - *Look if there is a way to search items from Youtube from inside the website*
 - The "Youtube" header should redirect to the main page
-*DONE* Add a FAQ section with a drop down menu
 - Add contact information
-- Fix colors
 - Add simple animations
 - Add frameworks to add nice css items
 - Insure it's mobile firendly
 - Look if there is any way to mask the link
-*DONE* Add a dark-mode toggle featur
 - Create a contact form
-- Create an in-line nav-menu
-- The list items should update the hidden div's content upon clicking
+- Create an in-line nav-menu (maybe it's not necessary)
+- Try to find a way to redirect user to different paages
