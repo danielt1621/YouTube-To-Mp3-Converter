@@ -23,6 +23,10 @@ app.get("/", (req, res) => {
     res.render("index.ejs")
 })
 
+app.post('/', (req,res) => {
+    console.log(req.body)
+})
+
 
 app.post("/convert-mp3", async (req, res) => {
     console.log("Received video URL:", req.body.videoID);
@@ -57,7 +61,12 @@ app.post("/convert-mp3", async (req, res) => {
     }
 });
 
+
+
+
 //start the server
 app.listen(PORT, () => {
     console.log('Server started on port ' + PORT); //${PORT}
 })
+
+
